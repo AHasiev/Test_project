@@ -1,0 +1,89 @@
+.mainUserProfile {
+  display: flex;
+  width: 665px;
+  height: 1028px;
+}
+
+h2 {
+  margin-left: 20px;
+  display: flex;
+  height: 20px;
+  margin-right: 100px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 636px;
+  height: 62px;
+}
+
+.informationUser {
+  width: 438px;
+  height: 463px;
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.btnEdit {
+  width: 110px;
+  height: 27.12px;
+}
+button {
+  display: flex;
+  width: 100.13px;
+  height: 27.12px;
+  padding: 5px 5px;
+  left: 245.27px;
+  top: 146.29px;
+  margin: 10.05px;
+  background: #4b51ef;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+button :hover {
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */  
+  background: #251542;
+}
+
+.btnAdd {
+  background-color: green;
+  margin-left: 400px;
+  width: 110px;
+height: 27.12px;
+padding: 5px;
+padding-left: 19px;
+} 
+
+.name,
+.userName,
+.email,
+.street,
+.city,
+.zipecode,
+.phone,
+.website,
+.comment {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 22px;
+  margin-bottom: 22px;
+  margin-left: 21px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+inpit {
+  transition-duration: 0.3s;
+  box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+}

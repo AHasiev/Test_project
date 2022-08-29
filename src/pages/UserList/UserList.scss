@@ -1,0 +1,88 @@
+.main {
+  display: flex;
+  width: 665px;
+  height: 1028px;
+}
+
+nav {
+  height:  1460px;;
+  width: 152px;
+  border-radius: 0px;
+  background-color: rgb(184, 170, 170);
+  padding-left: 20.27px;
+  margin-top: 58px;
+}
+
+h4 {
+  padding-top: 19.17px;
+  font-size: 19px;
+}
+
+.btnLeftCard {
+  display: flex;
+  width: 100.13px;
+  height: 27.12px;
+  padding: 5px 5px;
+  left: 245.27px;
+  top: 146.29px;
+  margin: 10.05px;
+  background: #4b51ef;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.btnLeftCard :hover {
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */  
+  background: #251542;
+}
+
+.rightCard {
+  width: 513px;
+  height: 1495px;
+  padding-left: 31px;
+}
+
+.listCard {
+  border-radius: 5px;
+  background-color: rgb(202, 188, 188);
+  margin-top: 20px;
+  padding: 5px 10px;
+  transition: all 500ms ease;
+}
+
+li {
+  list-style-type: none;
+  padding-top: 10px;
+}
+
+.btnRightCard {
+  background-color: #4b51ef;
+  border: none;
+  color: white;
+  // margin-left: 347px;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 95px;
+  height: 27px;
+  cursor: pointer;  
+}
+
+a :hover {
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */  
+  background: #251542;
+}
+
+
+p {
+  margin-left: 290px;
+  font-size: 16px;
+}
