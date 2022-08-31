@@ -1,21 +1,12 @@
-import axios, { AxiosError } from "axios";
-import React, { FC, useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IUser } from "../../components/model";
 import Navigation from "../../components/Navigation";
 import ReactLoading from "react-loading";
 
-interface UserProfilePagesParams {
-  id: string;
-  onClick: (user: IUser) => void;
-  users: IUser[];
-}
-
-const UserProfileItem: FC<UserProfilePagesParams> = () => {
-  const [value, setValue] = useState<string>("");
+const UserProfileItem = () => {
   const [name, setName] = useState<string>("");
-  const [nameDirty, setNameDirty] = useState<boolean>(false)
-  const [nameDirtyError, setNameDirtyError] = useState<string>('Поле имя не может быть пустым')
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [street, setStreet] = useState<string>("");
@@ -27,15 +18,6 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
   const [user, setUser] = useState<IUser | null>(null);
   const params = useParams();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  // const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   console.log(value);
-  // };
-
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
 
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -69,35 +51,21 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
     setWebsite(e.target.value);
   };
 
-
-  const blurHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    switch (e.target.name) {
-      case 'name':
-        setNameDirty(true)
-        break
-    };
-  };
- 
   async function fetchUsers() {
     try {
-      setError("");
       setLoading(true);
       const response = await axios.get<IUser>(
         "https://jsonplaceholder.typicode.com/users/" + params.id
       );
-      // console.log(respons.data);
       setUser(response.data);
       setLoading(false);
-    } catch (e: unknown) {
-      const error = e as AxiosError;
+    } catch {
       setLoading(false);
-      setError(error.message);
     }
   }
 
   async function editUsers() {
     try {
-      setError("");
       setLoading(true);
       const response = await axios.patch<IUser>(
         "https://jsonplaceholder.typicode.com/users/" + params.id,
@@ -111,14 +79,10 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
           phone: phone,
         }
       );
-      console.log(response.data);
       setUser(response.data);
       setLoading(false);
-    } catch (e: unknown) {
-      const error = e as AxiosError;
-      setError(error.message);
-    }
-  };
+    } catch {}
+  }
 
   useEffect(() => {
     fetchUsers();
@@ -126,14 +90,16 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
 
   return (
     <div className="mainUserProfile">
-      <Navigation users={[]} />
+      <Navigation />
       <div className="mainHeader">
-      {loading && <ReactLoading
-              type={"bars"}
-              color={"green"}
-              height={100}
-              width={100}
-            />}
+        {loading && (
+          <ReactLoading
+            type={"bars"}
+            color={"green"}
+            height={100}
+            width={100}
+          />
+        )}
         <div className="header">
           <h2>Профиль пользователя</h2>
           <button onClick={() => setRead(false)} className="btnEdit">
@@ -144,9 +110,7 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
         <div className="informationUser">
           <div className="name">
             Name
-            {(nameDirty && nameDirtyError) && <span className="messageName">{nameDirtyError}</span>}
             <input
-            onBlur={e => blurHandle(e)}
               readOnly={read}
               type="text"
               placeholder="name"
@@ -251,7 +215,3 @@ const UserProfileItem: FC<UserProfilePagesParams> = () => {
 };
 
 export default UserProfileItem;
-
-function user(user: any, onClick: any): React.FC<UserProfilePagesParams> {
-  throw new Error("Function not implemented.");
-}
