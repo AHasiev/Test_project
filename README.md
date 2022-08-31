@@ -1,12 +1,10 @@
 ## Для установки и запуска проекта:
 
-...
-
 git clone https://github.com/AHasiev/Test_project  
 cd test_project  
 npm install  
 npm start  
-...
+        
 
 # Тестовое задание   
 
