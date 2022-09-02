@@ -51,7 +51,7 @@ button :hover {
   outline: none;
   border: 0;
   background: transparent;
-  color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */  
+  color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */
   background: #251542;
 }
 
@@ -59,10 +59,10 @@ button :hover {
   background-color: green;
   margin-left: 400px;
   width: 110px;
-height: 27.12px;
-padding: 5px;
-padding-left: 19px;
-} 
+  height: 27.12px;
+  padding: 5px;
+  padding-left: 19px;
+}
 
 .name,
 .userName,
@@ -71,8 +71,7 @@ padding-left: 19px;
 .city,
 .zipecode,
 .phone,
-.website,
-.comment {
+.website {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -86,4 +85,14 @@ padding-left: 19px;
 inpit {
   transition-duration: 0.3s;
   box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+}
+
+.comment {
+  margin-left: 21px;
+}
+textarea {
+  width: 400px;
+  height: 100px;
+
+  // margin-left: 22px;
 }

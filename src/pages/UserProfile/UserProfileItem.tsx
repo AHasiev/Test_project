@@ -203,7 +203,7 @@ const UserProfileItem = () => {
 
           <div className="comment">
             Comment
-            <input type="text" placeholder="Enter your message" />
+            <textarea>Enter your message</textarea>
           </div>
           <button className="btnAdd" onClick={editUsers}>
             Отправить
